@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Services | Adeesha Induja</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #070708;
+      color: #f8f8f8;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- NAVBAR (same style) ---------- */
+    header {
+      width: 100%;
+      padding: 22px 8vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      color: #dcdcdc;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 0;
+      background: #ff007a;
+      left: 0;
+      bottom: 0;
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* active page (Services) */
+    .nav-links a.active {
+      color: #ffffff;
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .btn-nav {
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: none;
+      background: #ffffff;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* ---------- PAGE WRAPPER ---------- */
+    main {
+      padding: 40px 8vw 80px;
+    }
+
+    .page-intro {
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #ff007a;
+      margin-bottom: 10px;
+    }
+
+    .page-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .page-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #c0c0c0;
+    }
+
+    /* ---------- SERVICES GRID ---------- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .service-card {
+      background: #0d0e11;
+      border-radius: 22px;
+      padding: 22px 22px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .service-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 4px;
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: #ff007a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .service-title {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: #b7b7b7;
+      line-height: 1.7;
+    }
+
+    .service-tags {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #8c8c8c;
+    }
+
+    .service-cta {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #ff84c0;
+    }
+
+    /* ---------- SMALL PRICING / CTA STRIP ---------- */
+    .bottom-strip {
+      margin-top: 50px;
+      padding: 18px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(90deg, #111016, #15151d);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      justify-content: space-between;
+    }
+
+    .bottom-strip-text {
+      font-size: 14px;
+      color: #dcdcdc;
+      max-width: 460px;
+    }
+
+    .bottom-strip-bold {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .bottom-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-small-primary,
+    .btn-small-outline {
+      padding: 9px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-small-primary {
+      background: #ffffff;
+      color: #000;
+    }
+
+    .btn-small-outline {
+      background: transparent;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      header {
+        padding-inline: 6vw;
+      }
+      .nav-links {
+        display: none; /* simple: hide desktop nav on small */
+      }
+      main {
+        padding-inline: 6vw;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .page-title {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">LOGO</div>
+
+    <nav class="nav-links">
+      <a href="portfolio01.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+      <a href="#">Blogs</a>
+      <button class="btn-nav">Let's Talk</button>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- INTRO TEXT -->
+    <section class="page-intro">
+      <div class="page-subtitle">Services</div>
+      <h1 class="page-title">Design solutions I offer as a creative designer.</h1>
+      <p class="page-desc">
+        From building bold visual identities to crafting clean user interfaces,
+        I help brands and businesses communicate clearly and beautifully.
+        Here’s how we can work together.
+      </p>
+    </section>
+
+    <!-- SERVICES GRID -->
+    <section class="services-grid">
+
+      <!-- 1: Brand Identity -->
+      <article class="service-card">
+        <div class="service-header">
+          <div class="service-icon">B</div>
+          <div class="service-title">Brand Identity & Logo Design</div>
+        </div>
+        <p class="service-desc">
+          Complete visual systems for your brand: logos, color palettes,
+          typography and guidelines that make you instantly recognizable
+          across digital and print.
+        </p>
+        <div class="service-tags">Logo • Brand Kit • Guidelines • Stationery</div>
+        <div class="service-cta">Ideal for startups and rebrands.</div>
+      </article>
+
+      <!-- 2: UI/UX for Web & App -->
+      <article class="service-card">
+        <div class="service-header">
+          <div class="service-icon">U</div>
+          <div class="service-title">UI/UX Design for Web & Mobile</div>
+        </div>
+        <p class="service-desc">
+          User-focused interfaces with clean layouts, strong hierarchy and
+          smooth user journeys – from first wireframe to final high-fidelity
+          designs and clickable prototypes.
+        </p>
+        <div class="service-tags">Web UI • App UI • Wireframes • Prototypes</div>
+        <div class="service-cta">Perfect for SaaS, apps and landing pages.</div>
+      </article>
+
+      <!-- 3: Social Media & Content -->
+      <article class="service-card">
+        <div class="service-header">
+          <div class="service-icon">S</div>
+          <div class="service-title">Social Media Design & Campaigns</div>
+        </div>
+        <p class="service-desc">
+          Scroll-stopping posts, stories and ad creatives designed to match
+          your brand voice and keep your audience engaged and consistent.
+        </p>
+        <div class="service-tags">Instagram • Facebook • Ads • Templates</div>
+        <div class="service-cta">Great for ongoing content and launches.</div>
+      </article>
+
+      <!-- 4: Print & Marketing Collateral -->
+      <article class="service-card">
+        <div class="service-header">
+          <div class="service-icon">P</div>
+          <div class="service-title">Posters, Flyers & Marketing Design</div>
+        </div>
+        <p class="service-desc">
+          High-impact print designs such as posters, flyers, brochures and
+          event materials that are bold, readable and on-brand.
+        </p>
+        <div class="service-tags">Posters • Flyers • Banners • Brochures</div>
+        <div class="service-cta">Ideal for events, promotions and campaigns.</div>
+      </article>
+
+      <!-- 5: Visual Design & Creative Art -->
+      <article class="service-card">
+        <div class="service-header">
+          <div class="service-icon">V</div>
+          <div class="service-title">Visual Design & Creative Concepts</div>
+        </div>
+        <p class="service-desc">
+          Conceptual visuals, moodboards and exploratory artwork to help you
+          visualize ideas, pitches and creative campaigns before they go live.
+        </p>
+        <div class="service-tags">Concept Art • Moodboards • Explorations</div>
+        <div class="service-cta">Perfect for early-stage ideas and mood setting.</div>
+      </article>
+
+      <!-- 6: Custom / Retainer -->
+      <article class="service-card">
+        <div class="service-header">
+          <div class="service-icon">C</div>
+          <div class="service-title">Custom Packages & Monthly Support</div>
+        </div>
+        <p class="service-desc">
+          Need ongoing design help? I offer flexible retainer packages for
+          brands that require regular design work every month.
+        </p>
+        <div class="service-tags">Monthly Design • Flexible Scope</div>
+        <div class="service-cta">Let’s tailor a plan around your needs.</div>
+      </article>
+
+    </section>
+
+    <!-- BOTTOM CTA STRIP -->
+    <section class="bottom-strip">
+      <p class="bottom-strip-text">
+        <span class="bottom-strip-bold">Not sure which service fits your project?</span>
+        Share your idea and I’ll suggest a design approach and a clear next step.
+      </p>
+      <div class="bottom-buttons">
+        <button class="btn-small-primary">Request a Free Quote</button>
+        <button class="btn-small-outline">View Portfolio</button>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

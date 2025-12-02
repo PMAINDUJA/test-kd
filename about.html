@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About | Adeesha Induja</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #070708;
+      color: #f8f8f8;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- NAVBAR (same style with logo image) ---------- */
+    header {
+      width: 100%;
+      padding: 22px 8vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-box img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      color: #dcdcdc;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 0;
+      background: #ff007a;
+      left: 0;
+      bottom: 0;
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: #ffffff;
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .btn-nav {
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: none;
+      background: #ffffff;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* ---------- LAYOUT ---------- */
+    main {
+      padding: 40px 8vw 80px;
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #ff007a;
+      margin-bottom: 10px;
+    }
+
+    .page-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .page-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #c0c0c0;
+      max-width: 620px;
+    }
+
+    /* ---------- ABOUT GRID ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 40px;
+      margin-top: 36px;
+      margin-bottom: 40px;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: #d0d0d0;
+      margin-bottom: 14px;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .about-list li {
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #f0f0f0;
+    }
+
+    .about-highlight {
+      color: #ff007a;
+      font-weight: 600;
+    }
+
+    .about-card {
+      background: #0d0e11;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 22px 22px 24px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.55);
+    }
+
+    .about-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .about-card p {
+      font-size: 13px;
+      color: #c0c0c0;
+      line-height: 1.8;
+    }
+
+    /* ---------- SKILLS SUMMARY ---------- */
+    .skills-section {
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    .skills-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .skills-column h4 {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.16);
+      margin: 4px 6px 4px 0;
+      color: #f6f6f6;
+    }
+
+    /* ---------- TIMELINE ---------- */
+    .timeline {
+      margin-top: 10px;
+      border-left: 1px solid rgba(255,255,255,0.18);
+      padding-left: 18px;
+    }
+
+    .timeline-item {
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ff007a;
+    }
+
+    .timeline-role {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-size: 12px;
+      color: #a0a0a0;
+      margin-bottom: 6px;
+    }
+
+    .timeline-text {
+      font-size: 13px;
+      color: #c5c5c5;
+      line-height: 1.7;
+    }
+
+    /* ---------- FUN FACTS ---------- */
+    .fun-facts {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .fun-card {
+      background: #0d0e11;
+      border-radius: 18px;
+      padding: 16px 18px 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-size: 13px;
+      color: #d4d4d4;
+    }
+
+    .fun-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #ff84c0;
+      margin-bottom: 4px;
+    }
+
+    /* ---------- CTA STRIP ---------- */
+    .bottom-strip {
+      margin-top: 40px;
+      padding: 18px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(90deg,#111016,#14141f);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .bottom-strip-text {
+      font-size: 14px;
+      color: #e0e0e0;
+      max-width: 460px;
+    }
+
+    .bottom-strip-text span {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .bottom-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-small-primary,
+    .btn-small-outline {
+      padding: 9px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-small-primary {
+      background: #ffffff;
+      color: #000;
+    }
+
+    .btn-small-outline {
+      background: transparent;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      header {
+        padding-inline: 6vw;
+      }
+      .nav-links {
+        display: none; /* hide desktop nav on mobile for now */
+      }
+      main {
+        padding-inline: 6vw;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .page-title {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo-box">
+      <!-- change src to your actual logo path -->
+      <img src="C:\Users\adees\Downloads\vecteezy_s-fox-logo-design-template_7068500_334\vecteezy_s-fox-logo-design-template_7068500.jpg" alt="Adeesha Logo">
+    </div>
+
+    <nav class="nav-links">
+      <a href="portfolio01.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html" class="active">About</a>
+      <a href="#">Blogs</a>
+      <button class="btn-nav">Let's Talk</button>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <main>
+    <!-- INTRO -->
+    <section>
+      <div class="page-subtitle">About</div>
+      <h1 class="page-title">Designer, visual problem-solver and color addict.</h1>
+      <p class="page-desc">
+        I’m <strong>Adeesha Induja</strong>, a Graphic, UI/UX and Visual Designer who loves
+        building bold, modern visuals for brands and digital products. I mix strong typography,
+        clean layouts and vibrant color to create work that looks good and feels easy to use.
+      </p>
+    </section>
+
+    <!-- ABOUT GRID -->
+    <section class="about-grid">
+      <div class="about-text">
+        <p>
+          My work lives in the space between <span class="about-highlight">strategy and style</span>.
+          I enjoy understanding what a brand or product needs to say, then translating that into
+          visuals that feel sharp, consistent and memorable — whether it’s a logo, a mobile app
+          screen or an entire social media launch.
+        </p>
+        <p>
+          Over time I’ve focused on building a design style that is
+          <span class="about-highlight">colorful, modern and minimal</span>. I like designs that are
+          simple at first glance, but full of detail when you look closer: smooth spacing, clear
+          hierarchy and little touches that make the experience feel polished.
+        </p>
+        <ul class="about-list">
+          <li>• Working with startups, small businesses and personal brands.</li>
+          <li>• Comfortable designing for both web and mobile products.</li>
+          <li>• Always exploring new color palettes, typefaces and UI patterns.</li>
+        </ul>
+      </div>
+
+      <aside class="about-card">
+        <h3>How I like to work</h3>
+        <p>
+          I enjoy collaborating closely with clients and teams — asking questions, sharing early
+          sketches and refining ideas together. A good project for me has clear goals, honest
+          feedback and space to explore creative options before we lock anything in.
+        </p>
+        <p style="margin-top:10px;">
+          Whether it’s a full brand identity or a single landing page, my goal is simple:
+          <span class="about-highlight">make it beautiful, functional and easy to remember.</span>
+        </p>
+      </aside>
+    </section>
+
+    <!-- SKILLS SUMMARY -->
+    <section class="skills-section">
+      <h2 class="skills-title">Skills at a glance</h2>
+      <div class="skills-grid">
+        <div class="skills-column">
+          <h4>Graphic Design</h4>
+          <span class="skill-tag">Adobe Photoshop</span>
+          <span class="skill-tag">Adobe Illustrator</span>
+          <span class="skill-tag">Logo & Branding</span>
+          <span class="skill-tag">Poster & Flyer Design</span>
+          <span class="skill-tag">Packaging Concepts</span>
+        </div>
+        <div class="skills-column">
+          <h4>UI/UX Design</h4>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Mobile App UI</span>
+          <span class="skill-tag">Web Interfaces</span>
+          <span class="skill-tag">Wireframes & Flows</span>
+          <span class="skill-tag">Prototyping</span>
+        </div>
+        <div class="skills-column">
+          <h4>Visual & Creative</h4>
+          <span class="skill-tag">Visual Design</span>
+          <span class="skill-tag">Concept Art</span>
+          <span class="skill-tag">Color & Gradients</span>
+          <span class="skill-tag">Typography</span>
+          <span class="skill-tag">Layout Systems</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMPLE TIMELINE -->
+    <section>
+      <h2 class="skills-title">A short timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-role">Freelance Creative Designer</div>
+          <div class="timeline-meta">Ongoing • Remote / Sri Lanka</div>
+          <div class="timeline-text">
+            Working with clients on branding, social media visuals and UI/UX projects for
+            websites and mobile apps.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-role">Graphic Design Projects & Self-Study</div>
+          <div class="timeline-meta">Branding • UI/UX • Visual Design</div>
+          <div class="timeline-text">
+            Building a personal portfolio through concept projects, practice briefs and visual
+            explorations to sharpen both style and process.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUN FACTS -->
+    <section class="fun-facts">
+      <div class="fun-card">
+        <div class="fun-label">Focus</div>
+        I love working with <strong>dark themes, neon accents</strong> and clean typography,
+        especially for digital products and tech brands.
+      </div>
+      <div class="fun-card">
+        <div class="fun-label">Workflow</div>
+        Most projects start in Figma or on paper — quick shapes, layout blocks and color tests
+        before moving into polish.
+      </div>
+      <div class="fun-card">
+        <div class="fun-label">Goal</div>
+        To keep growing as a designer, collaborate with inspiring teams and someday lead visual
+        direction on big, meaningful products.
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bottom-strip">
+      <p class="bottom-strip-text">
+        <span>Want to work together?</span>  
+        Share a few lines about your brand or product and I’ll reply with ideas and a clear next step.
+      </p>
+      <div class="bottom-buttons">
+        <button class="btn-small-primary">Say Hello</button>
+        <button class="btn-small-outline">View My Projects</button>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
